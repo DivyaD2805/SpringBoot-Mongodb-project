@@ -15,8 +15,11 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
-
+    
+    @RequestMapping("")
+    public String mainpage() {
+        return " WELCOME !! Your Web App is Running Succesfully !!! "
+    }
     @RequestMapping("/create")
     public String create(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age,@RequestParam int sem, @RequestParam String sec,@RequestParam String usn) {
         Student p = studentService.create(firstName, lastName, age,sem,sec,usn);
