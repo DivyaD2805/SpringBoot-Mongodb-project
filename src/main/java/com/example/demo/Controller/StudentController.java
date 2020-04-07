@@ -18,7 +18,7 @@ public class StudentController {
     
     @RequestMapping("")
     public String mainpage() {
-        return " WELCOME !! Your Web App is Running Succesfully !!! goo luckkkkk "
+        return " WELCOME !! Your Web App is Running Succesfully !!!";
     }
     @RequestMapping("/create")
     public String create(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age,@RequestParam int sem, @RequestParam String sec,@RequestParam String usn) {
