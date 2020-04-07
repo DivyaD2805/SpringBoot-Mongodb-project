@@ -1,19 +1,13 @@
 package com.example.demo.Service;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.model.Student;
 import com.example.demo.Repository.StudentRepository;
-
 @Service
 public class StudentService {
-
     @Autowired
     private StudentRepository studentRepository;
-
     //Create operation
     public Student create(String firstName,String lastName, int age ,int sem, String sec,String usn) {
         return studentRepository.save(new Student(firstName, lastName, age,sem,sec,usn));
@@ -25,7 +19,6 @@ public class StudentService {
     public Student getByFirstName(String firstName) {
         return studentRepository.findByFirstName(firstName);
     }
-
     public Student getByUsn(String usn) {
         return studentRepository.findByUsn(usn);
     }
@@ -48,7 +41,6 @@ public class StudentService {
         p.setSem(s.getSem());
         studentRepository.save(p);
         return p;
-
     }
     //Delete operation
     public void deleteAll() {
@@ -65,5 +57,4 @@ public class StudentService {
     public  void createrecord(Student person) {
         studentRepository.save(person);
     }
-
 }

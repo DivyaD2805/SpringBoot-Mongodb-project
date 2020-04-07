@@ -1,22 +1,19 @@
 package com.example.demo.Controller;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.example.demo.model.Student;
 import com.example.demo.Service.StudentService;
-
 @RestController@RequestMapping("/student")
 public class StudentController {
-
     @Autowired
     private StudentService studentService;
-
-
+    @RequestMapping("")
+    public String mainpage(){
+        return "WELCOME !! your app is running succesfully !!!";
+    }
     @RequestMapping("/create")
     public String create(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age,@RequestParam int sem, @RequestParam String sec,@RequestParam String usn) {
         Student p = studentService.create(firstName, lastName, age,sem,sec,usn);
@@ -27,7 +24,6 @@ public class StudentController {
         studentService.createrecord(person);
         return new ResponseEntity("Student added successfully", HttpStatus.OK);
     }
-
     @GetMapping(value="/firstname/{firstName}")
     public Student getstudentbyname(@PathVariable ("firstName") String firstName) {
         return studentService.getByFirstName(firstName);
@@ -75,5 +71,4 @@ public class StudentController {
         studentService.deleteAll();
         return "Deleted all records";
     }
-
 }
