@@ -12,7 +12,7 @@ public class StudentController {
     private StudentService studentService;
     @RequestMapping("")
     public String mainpage(){
-        return "WELCOME !! your app is running succesfully !!!";
+        return "WELCOME !! your app is running succesfully  enjoy!!!";
     }
     @RequestMapping("/create")
     public String create(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age,@RequestParam int sem, @RequestParam String sec,@RequestParam String usn) {
